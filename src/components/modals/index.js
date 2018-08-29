@@ -1,8 +1,8 @@
 import MyModals from './Modals.vue'
 
 const Modals = {
-    install:function (Vue) {
-        Vue.component('Modals',MyModals)
+    install(Vue) {
+        Vue.component('Modals', MyModals)
     }
 }
 

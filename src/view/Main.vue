@@ -12,10 +12,10 @@
         },
         methods:{
             success() {
-                this.$store.commit('setShowModal',{showModal:true,msg:'hello world',type:'success'})
+                this.$store.commit('ShowModal',{showModal:true,msg:'hello world',type:'success'})
             },
             error(){
-                this.$store.commit('setShowModal',{showModal:true,msg:'发生了错误',type:'error'})
+                this.$store.commit('ShowModal',{showModal:true,msg:'发生了错误',type:'error'})
             }
         }
     }

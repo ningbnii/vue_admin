@@ -1,7 +1,8 @@
 <template>
-    <div v-show="showModal">
+    <div v-show="show">
         <!--Success Modal Templates-->
-        <div id="modal-success" class="modal modal-message modal-success animated fadeInDown" style="display: block;" v-show="type == 'success'">
+        <div id="modal-success" class="modal modal-message modal-success animated bounceIn" style="display: block;"
+             v-show="type == 'success'">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -11,7 +12,8 @@
 
                     <div class="modal-body">{{msg}}</div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal" v-on:click="hidden()">OK</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal" v-on:click="hidden()">OK
+                        </button>
                     </div>
                 </div> <!-- / .modal-content -->
             </div> <!-- / .modal-dialog -->
@@ -19,17 +21,19 @@
         <!--End Success Modal Templates-->
 
         <!--Danger Modal Templates-->
-        <div id="modal-danger" class="modal modal-message modal-danger animated fadeInDown" style="display: block;" v-show="type == 'error'">
+        <div id="modal-danger" class="modal modal-message modal-danger animated bounceIn" style="display: block;"
+             v-show="type == 'error'">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <i class="glyphicon glyphicon-fire"></i>
                     </div>
-                    <div class="modal-title">Alert</div>
+                    <div class="modal-title">Error</div>
 
                     <div class="modal-body">{{msg}}</div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal" v-on:click="hidden()">OK</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" v-on:click="hidden()">OK
+                        </button>
                     </div>
                 </div> <!-- / .modal-content -->
             </div> <!-- / .modal-dialog -->
@@ -42,21 +46,21 @@
 
 <script>
     export default {
-        name:'Modals',
-        computed:{
-            showModal(){
-                return this.$store.state.modals.showModal
+        name: 'Modals',
+        computed: {
+            show() {
+                return this.$store.state.modals.show
             },
-            msg(){
+            msg() {
                 return this.$store.state.modals.msg
             },
-            type(){
+            type() {
                 return this.$store.state.modals.type
             }
         },
-        methods:{
-            hidden(){
-                this.$store.commit('setShowModal',{showModal:false})
+        methods: {
+            hidden() {
+                this.$store.commit('modalsHide')
             }
         }
 
